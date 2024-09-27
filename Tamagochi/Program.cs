@@ -1,11 +1,8 @@
-﻿weapon axe = new();
-//     Name = "axe",
-//     MinDamage = 10,
-//     MaxDamage = 20
-// };
+﻿    Console.WriteLine("Welcome to your Tamagotchi");
 
-// int damage = axe.Attack();
+    Tamagotchi myTama = new Tamagotchi();
 
-// Console.WriteLine(damage);
+    Console.WriteLine("Choose a name for your buddy");
+    myTama.name = Console.ReadLine();
 
-Console.ReadLine();
+    Console.WriteLine($"Wonderfull {myTama.name} is a great name");

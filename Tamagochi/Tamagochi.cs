@@ -1,55 +1,72 @@
 
+using System;
+using System.Collections.Generic;
 
-
-public class tamagochi{
-    private int Hunger;
-    private int Boredom;
-    private List<string> words = new List<string>() {"hello"};
-    private bool isAlive;
-    private Random generator;
-    private string name;
-}
-
-
+public class Tamagotchi
+{
+  private int hunger;
+  private int boredom;
+  private List<string> words = new List<string>() {"Hello"};
+  private bool isAlive;
+  public string name;
 
   public Tamagotchi()
   {
-    generator = new Random();
     isAlive = true;
   }
 
+  public void Feed()
+  {
+    Console.WriteLine($" [{name}] eats and becomes less hungry");
+    hunger -= 2;
+    if (hunger < 0)
+    {
+      hunger = 0;
+    }
+  }
 
+  public void Hi()
+  {
+    int wordNum = Random.Shared.Next(words.Count);
+    Console.WriteLine($" [{name}] says: {words[wordNum]}");
+    ReduceBoredom();
+  }
 
-/*                                                  Publika klasser                                                                               */
-/*---------------------------------------------------------------------------------------------------------------------------------*/
+  public void Teach(string word)
+  {
+    Console.WriteLine($" [{name}] learns: {word}");
+    words.Add(word);
+    ReduceBoredom();
+  }
 
+  public void Tick()
+  {
+    hunger++;
+    boredom++;
+    if (hunger > 10 || boredom > 10)
+    {
+      isAlive = false;
+    }
+  }
 
+  public void PrintStats()
+  {
+    Console.WriteLine($"Name: {name} || Hunger: {hunger} || Boredom: {boredom} || Vocabulary: {words.Count} words");
+  }
 
-public void Feed()
-{
-    
+  public bool GetAlive()
+  {
+    return isAlive;
+  }
+
+  public void ReduceBoredom()
+  {
+    Console.WriteLine($" [{name}] is now less bored!");
+
+    boredom -= 2;
+    if (boredom < 0)
+    {
+      boredom = 0;
+    }
+  }
 }
-public void Hi()
-{
-
-}
-public void Teach(string words)
-{
-Console.WriteLine($"[{name}] lär sig att {word}")
-words.Add(word);
-ReduceBoredom();
-}
-
-public void Tick()
-{
-
-}
-public void PrintStats()
-{
-
-}
-public bool GetAlive()
-{
-
-}
-
