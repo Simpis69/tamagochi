@@ -18,7 +18,8 @@ public class Tamagotchi
   public void Feed()
   {
     Console.WriteLine($" [{name}] eats and becomes less hungry");
-    hunger -= 2;
+    Random Hunger = new Random();
+    hunger -= Random.Shared.Next(2, 5);
     if (hunger < 0)
     {
       hunger = 0;

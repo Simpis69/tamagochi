@@ -10,6 +10,7 @@
     while(myTama.GetAlive() == true)
     {
         Console.Clear();
+        myTama.PrintStats();
         Console.WriteLine("What do you want to do now?");
         Console.WriteLine($"1. Teach {myTama.name} a new word");
         Console.WriteLine($"2. Talk to {myTama.name}");
